@@ -25,11 +25,25 @@ jobs:
         run: pip install pytest numpy matplotlib coverage
       - name: "Run pytest via coverage"
         run: coverage run -m pytest
-      - name: "Show coverage report"
-        run: coverage report -m
       - name: "Upload coverage information"
         uses: actions/upload-artifact@v2
         with:
             name: coverage
             path: .coverage
             retention-days: 1
+  coverage_report:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-python@v2
+        with:
+          python-version: '3.8.10'
+      - name: "Install coverage"
+        run: pip install coverage
+      - name: "Download coverage file"
+        uses: actions/download-artifact@v2
+        with:
+            name: coverage
+      - name: "Show coverage report"
+        run: coverage report -m
+    
