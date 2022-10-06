@@ -27,3 +27,9 @@ jobs:
         run: coverage run -m pytest
       - name: "Show coverage report"
         run: coverage report -m
+      - name: "Upload coverage information"
+        uses: actions/upload-artifact@v2
+        with:
+            name: coverage
+            path: .coverage
+            retention-days: 1
