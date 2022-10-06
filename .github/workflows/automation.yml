@@ -21,7 +21,7 @@ jobs:
       - uses: actions/setup-python@v2
         with:
           python-version: '3.8.10'
-      - name: "Install pytest and numpy"
-        run: pip install pytest numpy
+      - name: "Install pytest, matplotlib, and numpy"
+        run: pip install pytest numpy matplotlib
       - name: "Run pytest"
         run: python -m pytest
