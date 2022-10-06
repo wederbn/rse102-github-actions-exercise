@@ -47,6 +47,8 @@ jobs:
             name: coverage
       - name: "Show coverage report"
         run: coverage report -m
+      - name: "Convert coverage report to xml"
+        run: coverage xml
       - name: "Upload coverage xml"
         uses: actions/upload-artifact@v2
         with:
