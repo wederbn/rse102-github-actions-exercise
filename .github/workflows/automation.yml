@@ -21,9 +21,9 @@ jobs:
       - uses: actions/setup-python@v2
         with:
           python-version: '3.8.10'
-      - name: "Install pytest, matplotlib, and numpy"
+      - name: "Install pytest, matplotlib, coverage, and numpy"
         run: pip install pytest numpy matplotlib coverage
-      - name: "Run pytest"
-        run: python -m pytest
-      - name: "Run coverage"
+      - name: "Run pytest via coverage"
+        run: coverage run -m pytest
+      - name: "Show coverage report"
         run: coverage report -m
